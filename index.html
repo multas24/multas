@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creación Páginas Web - Tu Presencia Digital Profesional</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.98);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #2563eb;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.95) 0%, rgba(124, 58, 237, 0.95) 100%),
+                        url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1600') center/cover;
+            color: white;
+            padding: 150px 2rem 100px;
+            margin-top: 70px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(255,255,255,0.1) 0%, transparent 50%);
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            animation: fadeInUp 0.8s ease 0.2s both;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #2563eb;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            animation: fadeInUp 0.8s ease 0.4s both;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+            background: #f0f9ff;
+        }
+
+        /* Precio Section */
+        .precio-section {
+            background: linear-gradient(135deg, #f8fafc 0%, #e0e7ff 100%);
+            padding: 80px 2rem;
+            text-align: center;
+        }
+
+        .precio-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            transform: translateY(0);
+            transition: transform 0.3s ease;
+        }
+
+        .precio-container:hover {
+            transform: translateY(-10px);
+        }
+
+        .precio-tag {
+            display: inline-block;
+            background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+
+        .precio-amount {
+            font-size: 4rem;
+            font-weight: bold;
+            color: #2563eb;
+            margin: 1rem 0;
+        }
+
+        .precio-periodo {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .sin-anticipo {
+            background: #10b981;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            margin-top: 1.5rem;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        /* Características Section */
+        .caracteristicas-section {
+            padding: 80px 2rem;
+            background: white;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #1e293b;
+        }
+
+        .caracteristicas-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .caracteristica-card {
+            background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            border: 2px solid #e2e8f0;
+        }
+
+        .caracteristica-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(37, 99, 235, 0.15);
+            border-color: #2563eb;
+        }
+
+        .caracteristica-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+
+        .caracteristica-card h3 {
+            color: #1e293b;
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        .caracteristica-card p {
+            color: #64748b;
+            line-height: 1.6;
+        }
+
+        /* Tecnologías Section */
+        .tecnologias-section {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            color: white;
+            padding: 80px 2rem;
+            text-align: center;
+        }
+
+        .tecnologias-section h2 {
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+        }
+
+        .tecnologias-badges {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .tech-badge {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: bold;
+            border: 2px solid rgba(255,255,255,0.2);
+            transition: all 0.3s ease;
+        }
+
+        .tech-badge:hover {
+            background: rgba(255,255,255,0.2);
+            transform: scale(1.05);
+        }
+
+        /* Footer CTA */
+        .footer-cta {
+            background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+            color: white;
+            padding: 60px 2rem;
+            text-align: center;
+        }
+
+        .footer-cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-cta p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .whatsapp-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            background: #25d366;
+            color: white;
+            padding: 1.2rem 3rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.3);
+        }
+
+        .whatsapp-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(37, 211, 102, 0.4);
+            background: #20bd5a;
+        }
+
+        .whatsapp-icon {
+            width: 30px;
+            height: 30px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #25d366;
+            font-weight: bold;
+        }
+
+        /* Footer */
+        footer {
+            background: #0f172a;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        /* Animaciones */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .precio-amount {
+                font-size: 3rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .caracteristicas-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .tecnologias-badges {
+                gap: 1rem;
+            }
+
+            .tech-badge {
+                padding: 0.8rem 1.5rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="nav-container">
+            <div class="logo">
+                <div class="logo-icon">CP</div>
+                <span>Creación Páginas Web</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Tu Presencia Digital Profesional</h1>
+            <p>Creamos páginas web informativas modernas y efectivas para impulsar tu negocio en el mundo digital</p>
+            <a href="#contacto" class="cta-button">Comienza Ahora</a>
+        </div>
+    </section>
+
+    <!-- Precio Section -->
+    <section class="precio-section">
+        <div class="precio-container">
+            <span class="precio-tag">OFERTA ESPECIAL</span>
+            <h2>Plan Anual Completo</h2>
+            <div class="precio-amount">$199.000</div>
+            <p class="precio-periodo">Por año - Todo incluido</p>
+            <p style="color: #64748b; margin: 1rem 0;">Hosting, dominio, SSL, y mucho más</p>
+            <div class="sin-anticipo">
+                🎉 ¡Sin anticipo! Pagas cuando recibas tu página web
+            </div>
+        </div>
+    </section>
+
+    <!-- Características Section -->
+    <section class="caracteristicas-section">
+        <h2 class="section-title">Todo lo que Incluye tu Página Web</h2>
+        <div class="caracteristicas-grid">
+            <div class="caracteristica-card">
+                <div class="caracteristica-icon">🌐</div>
+                <h3>Hosting Incluido</h3>
+                <p>Servidor web confiable y veloz para que tu sitio esté disponible 24/7</p>
+            </div>
+
+            <div class="caracteristica-card">
+                <div class="caracteristica-icon">🔗</div>
+                <h3>Dominio .xyz</h3>
+                <p>Tu propio dominio profesional para dar credibilidad a tu negocio</p>
+            </div>
+
+            <div class="caracteristica-card">
+                <div class="caracteristica-icon">🔒</div>
+                <h3>Certificado SSL</h3>
+                <p>Seguridad garantizada con protocolo HTTPS para proteger a tus visitantes</p>
+            </div>
+
+            <div class="caracteristica-card">
+                <div class="caracteristica-icon">💬</div>
+                <h3>Botón WhatsApp</h3>
+                <p>Comunicación directa con tus clientes mediante WhatsApp integrado</p>
+            </div>
+
+            <div class="caracteristica-card">
+                <div class="caracteristica-icon">📍</div>
+                <h3>Google Maps</h3>
+                <p>Ubicación visible con mapa interactivo para que te encuentren fácilmente</p>
+            </div>
+
+            <div class="caracteristica-card">
+                <div class="caracteristica-icon">📱</div>
+                <h3>Redes Sociales</h3>
+                <p>Integración completa con todas tus redes sociales y canales digitales</p>
+            </div>
+
+            <div class="caracteristica-card">
+                <div class="caracteristica-icon">💻</div>
+                <h3>Diseño Responsivo</h3>
+                <p>Perfectamente adaptado a computadores, tablets y dispositivos móviles</p>
+            </div>
+
+            <div class="caracteristica-card">
+                <div class="caracteristica-icon">⚡</div>
+                <h3>Tecnología Moderna</h3>
+                <p>Desarrollado con HTML5, CSS3 y JavaScript para máximo rendimiento</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tecnologías Section -->
+    <section class="tecnologias-section">
+        <h2>Desarrollado con Tecnologías Profesionales</h2>
+        <div class="tecnologias-badges">
+            <span class="tech-badge">HTML5</span>
+            <span class="tech-badge">CSS3</span>
+            <span class="tech-badge">JavaScript</span>
+            <span class="tech-badge">Responsive Design</span>
+            <span class="tech-badge">SEO Optimizado</span>
+        </div>
+    </section>
+
+    <!-- Footer CTA -->
+    <section class="footer-cta" id="contacto">
+        <h2>¿Listo para Comenzar?</h2>
+        <p>Sin compromisos, sin anticipos. Paga solo cuando tengas tu página web lista</p>
+        <a href="https://wa.me/573216528704" class="whatsapp-button" target="_blank">
+            <span class="whatsapp-icon">📱</span>
+            Contáctanos por WhatsApp
+        </a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Creación Páginas Web. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        // Smooth scroll para el botón CTA
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Animación de aparición al hacer scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.6s ease forwards';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.caracteristica-card').forEach(card => {
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
